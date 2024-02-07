@@ -5,10 +5,10 @@ import org.joda.time.LocalDate;
 import java.util.Optional;
 
 public class WorkExperiencie {
-    private String title;
-    private String description;
-    private LocalDate startDate;
-    private LocalDate finishDate;
+    public String title;
+    public String description;
+    public LocalDate startDate;
+    public LocalDate finishDate;
 
     public WorkExperiencie(String title, String description, LocalDate startDate, LocalDate finishDate){
         this.title = title;
