@@ -33,13 +33,11 @@ public class WorkExperiencieSpec {
 
     @Test
     void worckExperiencie_without_finishDate_is_remplazed_with_actual_date(){
-        //Arrange
-        LocalDate actualDate = new LocalDate(2024,02,02);
+        LocalDate currentDate = new LocalDate(2024,02,02);
+        localDateMockedStatic.when(LocalDate::now).thenReturn(currentDate);
         WorkExperiencie experiencie = new WorkExperiencie("hds", "data", new LocalDate(2024, 01, 01),null);
-        //Act
-        localDateMockedStatic.when(LocalDate::now).thenReturn(actualDate);
         //Assert
-        assertEquals(experiencie.finishDate,actualDate);
+        assertEquals(experiencie.finishDate,currentDate);
     }
 
 }
