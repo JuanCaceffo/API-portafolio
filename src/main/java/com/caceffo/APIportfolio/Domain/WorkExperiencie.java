@@ -1,5 +1,6 @@
 package com.caceffo.APIportfolio.Domain;
 
+import com.caceffo.APIportfolio.Error.BussinesExpetion;
 import org.joda.time.Months;
 import org.joda.time.LocalDate;
 import java.util.Optional;
@@ -15,6 +16,7 @@ public class WorkExperiencie {
         this.description = description;
         this.startDate = startDate;
         this.finishDate = Optional.ofNullable(finishDate).orElse(LocalDate.now());
+        this.validateDates();
     }
 
     public int totalMonths() {
@@ -23,5 +25,10 @@ public class WorkExperiencie {
 
     /* ---------------------------- validations ----------------------------*/
 
-
+    private void validateDates(){
+       if (this.startDate.isAfter(this.finishDate)){
+           //TODO: Change the exception when the API will internationalized
+           throw new BussinesExpetion("ingrese una fecha de inicio de actividad menor o igual que la de fin");
+       }
+    }
 }
