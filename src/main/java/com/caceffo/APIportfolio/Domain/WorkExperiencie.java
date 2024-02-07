@@ -21,4 +21,7 @@ public class WorkExperiencie {
         return Months.monthsBetween(this.startDate, this.finishDate).getMonths();
     }
 
+    /* ---------------------------- validations ----------------------------*/
+
+
 }
