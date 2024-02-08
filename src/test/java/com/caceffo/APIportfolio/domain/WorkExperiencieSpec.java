@@ -45,7 +45,7 @@ public class WorkExperiencieSpec {
     void startDate_of_the_worckExperiencie_is_greater_than_the_finshDate(){
         //Arragne
         Exception exception = assertThrows(BussinesExeption.class, () -> {
-            WorkExperiencie experiencie = new WorkExperiencie("hds", "data", new LocalDate(2024, 03, 01), new LocalDate(2024, 02, 01));
+            new WorkExperiencie("hds", "data", new LocalDate(2024, 03, 01), new LocalDate(2024, 02, 01));
         });
         //TODO: Change the message when the API will internationalized
         String expectedMsg = "ingrese una fecha de inicio de actividad menor o igual que la de fin";
