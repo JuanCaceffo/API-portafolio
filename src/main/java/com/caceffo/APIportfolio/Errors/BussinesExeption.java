@@ -1,11 +1,11 @@
-package com.caceffo.APIportfolio.Error;
+package com.caceffo.APIportfolio.Errors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class BussinesExpetion extends RuntimeException{
-    public BussinesExpetion(String msg){
+public class BussinesExeption extends RuntimeException{
+    public BussinesExeption(String msg){
         super(msg);
     }
 }

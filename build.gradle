@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.2'
 	id 'io.spring.dependency-management' version '1.1.4'
-}
+	id 'systems.manifold.manifold-gradle-plugin' version '0.0.2-alpha'}
 
 group = 'com.caceffo'
 version = '0.0.1-SNAPSHOT'
@@ -15,10 +15,17 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+	testImplementation.extendsFrom annotationProcessor
 }
 
 repositories {
+	mavenLocal()
 	mavenCentral()
+	maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+}
+
+manifold {
+	manifoldVersion = '2024.1.1'
 }
 
 dependencies {
@@ -31,6 +38,10 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
 	testImplementation 'org.mockito:mockito-core:3.+'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+	implementation "systems.manifold:manifold-json-rt:${manifold.manifoldVersion.get()}"
+	implementation "systems.manifold:manifold-props-rt:${manifold.manifoldVersion.get()}"
+	annotationProcessor "systems.manifold:manifold-json:${manifold.manifoldVersion.get()}"
+	annotationProcessor "systems.manifold:manifold-props:${manifold.manifoldVersion.get()}"
 }
 
 tasks.named('test') {
