@@ -19,7 +19,7 @@ public class PersonalProjects {
         this.repo = Optional.ofNullable(repo);
         this.deploy = Optional.ofNullable(deploy);
         //validations
-        //TODO: When the multi-languague API is ready change this
+        //TODO: When the multi-languague API is ready. Change this
         this.type.isBlankException("Type cannot be blank");
         this.title.isBlankException("Title cannot be blank");
         this.description.isBlankException("Description cannot be blank");
