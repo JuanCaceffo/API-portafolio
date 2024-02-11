@@ -1,9 +1,7 @@
 package com.caceffo.APIportfolio.domain;
 
 import com.caceffo.APIportfolio.Domain.PersonalProjects;
-import com.caceffo.APIportfolio.Domain.WorkExperiencie;
 import com.caceffo.APIportfolio.Errors.BussinesExeption;
-import org.joda.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
