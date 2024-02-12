@@ -1,11 +1,12 @@
 package com.caceffo.APIportfolio.Domain;
 
+import com.caceffo.APIportfolio.Reposiroty.RepositoryProps;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
 import java.util.Optional;
 
-public class PersonalProjects {
+public class PersonalProjects extends RepositoryProps {
     private String type;
     private String title;
     private String description;

@@ -1,11 +1,12 @@
 package com.caceffo.APIportfolio.Domain;
 
 import com.caceffo.APIportfolio.Errors.BussinesExeption;
+import com.caceffo.APIportfolio.Reposiroty.RepositoryProps;
 import org.joda.time.Months;
 import org.joda.time.LocalDate;
 import java.util.Optional;
 
-public class WorkExperiencie {
+public class WorkExperiencie extends RepositoryProps {
     public String title;
     public String description;
     public LocalDate startDate;
