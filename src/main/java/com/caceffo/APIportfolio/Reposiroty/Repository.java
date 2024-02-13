@@ -14,8 +14,6 @@ public class Repository <T extends RepositoryProps> {
         elementsList.clear();
         id = 0;
     }
-
-    //TODO: add an exception if the element wasn't find
     public T getElementById(Integer id){
         Optional<T> element =  elementsList.stream()
                 .filter(item -> Objects.equals(item.id, id))
