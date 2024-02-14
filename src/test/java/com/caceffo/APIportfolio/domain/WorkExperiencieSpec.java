@@ -47,10 +47,8 @@ public class WorkExperiencieSpec {
         Exception exception = assertThrows(BusinessException.class, () -> {
             new WorkExperiencie("hds", "data", new LocalDate(2024, 03, 01), new LocalDate(2024, 02, 01));
         });
-        //TODO: Change the message when the API will internationalized
-        String expectedMsg = "ingrese una fecha de inicio de actividad menor o igual que la de fin";
         //Assert
-        assertTrue(exception.getMessage().contains(expectedMsg));
+        assertTrue(exception.getMessage().contains("Exception.WorckExperiencie.invalidStartDate"));
     }
 
 }

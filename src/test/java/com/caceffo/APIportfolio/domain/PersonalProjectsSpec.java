@@ -19,20 +19,20 @@ public class PersonalProjectsSpec {
     public void PersonalProject_cant_have_an_empty_type() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
             new PersonalProjects(null, "dsada", "dadsa", null, null);
-        }), "Type cannot be blank");
+        }), "Exception.PeronsalProject.CantBeEmpty");
     }
 
     @Test
     public void PersonalProject_cant_have_an_empty_title() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
             new PersonalProjects("dada", null, "dadsa", null, null);
-        }), "Title cannot be blank");
+        }), "Exception.PeronsalProject.CantBeEmpty");
     }
 
     @Test
     public void PersonalProject_cant_have_an_empty_description() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
             new PersonalProjects("dada", "dadsa", null, null, null);
-        }), "Description cannot be blank");
+        }), "Exception.PeronsalProject.CantBeEmpty");
     }
 }
