@@ -1,30 +1,31 @@
 package com.caceffo.APIportfolio.Domain;
 
+import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Errors.BusinessException;
 import com.caceffo.APIportfolio.Reposiroty.RepositoryProps;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class PersonalProjects extends RepositoryProps {
-    private String type;
-    private String title;
-    private String description;
+    private Langs type;
+    private Langs title;
+    private Langs description;
     private Optional<String> repo;
     private Optional<String> deploy;
 
-    public PersonalProjects(@Nonnull String type,@Nonnull String title, @Nonnull String description, @Nullable String repo, @Nullable String deploy){
-        this.type = type.emptyIfIsNull();
-        this.title = title.emptyIfIsNull();
-        this.description = description.emptyIfIsNull();
+    public PersonalProjects(@Nonnull Langs type, @Nonnull Langs title, @Nonnull Langs description, @Nullable String repo, @Nullable String deploy){
+        this.type = nullLangException("Type",type);
+        this.title = nullLangException("Title",title);
+        this.description = nullLangException("Description", description);
         this.repo = Optional.ofNullable(repo);
         this.deploy = Optional.ofNullable(deploy);
-        //validations
-        this.type.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","type"));
-        this.title.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","Title"));
-        this.description.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","Description"));
     }
 
-
+    public Langs nullLangException(String fieldName, Langs field){
+        return Optional.ofNullable(field).orElseThrow(() -> new BusinessException("Exception.PeronsalProject.CantBeEmpty",fieldName));
+    }
 }

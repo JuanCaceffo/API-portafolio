@@ -6,4 +6,5 @@ public class BusinessException extends RuntimeException{
         super(msg);
         this.params = params;
     }
+
 }

@@ -1,6 +1,7 @@
 package com.caceffo.APIportfolio.domain;
 
 import com.caceffo.APIportfolio.Domain.PersonalProjects;
+import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Errors.BusinessException;
 import org.junit.jupiter.api.Test;
 
@@ -18,21 +19,21 @@ public class PersonalProjectsSpec {
     @Test
     public void PersonalProject_cant_have_an_empty_type() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
-            new PersonalProjects(null, "dsada", "dadsa", null, null);
+            new PersonalProjects(null, new Langs("dsa","dsa"), new Langs("dsa","dsa"), null, null);
         }), "Exception.PeronsalProject.CantBeEmpty");
     }
 
     @Test
     public void PersonalProject_cant_have_an_empty_title() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
-            new PersonalProjects("dada", null, "dadsa", null, null);
+            new PersonalProjects(new Langs("dsa","dsa"), null, new Langs("dsa","dsa"), null, null);
         }), "Exception.PeronsalProject.CantBeEmpty");
     }
 
     @Test
     public void PersonalProject_cant_have_an_empty_description() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
-            new PersonalProjects("dada", "dadsa", null, null, null);
+            new PersonalProjects(new Langs("dsa","dsa"), new Langs("dsa","dsa"), null, null, null);
         }), "Exception.PeronsalProject.CantBeEmpty");
     }
 }
