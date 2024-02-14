@@ -1,6 +1,6 @@
 package com.caceffo.APIportfolio.Reposiroty;
 
-import com.caceffo.APIportfolio.Errors.BussinesExeption;
+import com.caceffo.APIportfolio.Errors.BusinessException;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -19,7 +19,7 @@ public class Repository <T extends RepositoryProps> {
                 .filter(item -> Objects.equals(item.id, id))
                 .findFirst();
         if (element.isEmpty()){
-            throw new BussinesExeption("El elemento no fue encontrado");
+            throw new BusinessException("El elemento no fue encontrado");
         }
         return element.get();
     }

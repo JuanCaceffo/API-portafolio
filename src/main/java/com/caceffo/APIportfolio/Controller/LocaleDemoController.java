@@ -19,7 +19,8 @@ public class LocaleDemoController {
 
     @GetMapping("/hello")
     public String hellowWorld(@RequestHeader(name = "Accept-Language", required = false) Locale locale){
-        return messageSource.getMessage("greeting",null,locale);
+        throw new RuntimeException();
+        /*return messageSource.getMessage("greeting",null,locale);*/
     }
 
 

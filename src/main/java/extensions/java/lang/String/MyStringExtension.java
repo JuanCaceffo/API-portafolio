@@ -1,6 +1,6 @@
 package extensions.java.lang.String;
 
-import com.caceffo.APIportfolio.Errors.BussinesExeption;
+import com.caceffo.APIportfolio.Errors.BusinessException;
 import manifold.ext.rt.api.Extension;
 import manifold.ext.rt.api.This;
 
@@ -11,7 +11,7 @@ public class MyStringExtension{
     public static void isBlankException(@This String str, String msg){
         if(str.isBlank()){
             System.out.println("jode");
-            throw new BussinesExeption(msg);
+            throw new BusinessException(msg);
         }
     }
 

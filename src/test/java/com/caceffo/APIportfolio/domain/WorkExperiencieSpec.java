@@ -1,7 +1,7 @@
 package com.caceffo.APIportfolio.domain;
 
 import com.caceffo.APIportfolio.Domain.WorkExperiencie;
-import com.caceffo.APIportfolio.Errors.BussinesExeption;
+import com.caceffo.APIportfolio.Errors.BusinessException;
 import org.joda.time.LocalDate;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -44,7 +44,7 @@ public class WorkExperiencieSpec {
     @Test
     void startDate_of_the_worckExperiencie_is_greater_than_the_finshDate(){
         //Arragne
-        Exception exception = assertThrows(BussinesExeption.class, () -> {
+        Exception exception = assertThrows(BusinessException.class, () -> {
             new WorkExperiencie("hds", "data", new LocalDate(2024, 03, 01), new LocalDate(2024, 02, 01));
         });
         //TODO: Change the message when the API will internationalized
