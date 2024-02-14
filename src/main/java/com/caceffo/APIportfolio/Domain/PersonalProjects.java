@@ -1,5 +1,6 @@
 package com.caceffo.APIportfolio.Domain;
 
+import com.caceffo.APIportfolio.Errors.BusinessException;
 import com.caceffo.APIportfolio.Reposiroty.RepositoryProps;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,10 +21,9 @@ public class PersonalProjects extends RepositoryProps {
         this.repo = Optional.ofNullable(repo);
         this.deploy = Optional.ofNullable(deploy);
         //validations
-        //TODO: When the multi-languague API is ready. Change this
-        this.type.isBlankException("Type cannot be blank");
-        this.title.isBlankException("Title cannot be blank");
-        this.description.isBlankException("Description cannot be blank");
+        this.type.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","type"));
+        this.title.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","Title"));
+        this.description.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","Description"));
     }
 
 

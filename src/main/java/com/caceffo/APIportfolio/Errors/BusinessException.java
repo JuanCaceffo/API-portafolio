@@ -1,10 +1,9 @@
 package com.caceffo.APIportfolio.Errors;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
 public class BusinessException extends RuntimeException{
-    public BusinessException(String msg){
+    Object[] params;
+    public BusinessException(String msg, Object... params){
         super(msg);
+        this.params = params;
     }
 }

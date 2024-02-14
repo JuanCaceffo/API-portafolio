@@ -28,8 +28,7 @@ public class WorkExperiencie extends RepositoryProps {
 
     private void validateDates(){
        if (this.startDate.isAfter(this.finishDate)){
-           //TODO: Change the exception when the API will internationalized
-           throw new BusinessException("ingrese una fecha de inicio de actividad menor o igual que la de fin");
+           throw new BusinessException("Exception.WorckExperiencie.invalidStartDate");
        }
     }
 }

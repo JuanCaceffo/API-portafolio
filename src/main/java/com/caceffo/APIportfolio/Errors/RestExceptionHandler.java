@@ -22,7 +22,7 @@ public class RestExceptionHandler {
 
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<MessageDTO> handleBussinesException(BusinessException ex, Locale locale){
-        String message = messageSource.getMessage(ex.getMessage(),null,locale);
+        String message = messageSource.getMessage(ex.getMessage(),ex.params,locale);
         return new ResponseEntity<>(new MessageDTO(message) ,HttpStatus.BAD_REQUEST);
     }
 

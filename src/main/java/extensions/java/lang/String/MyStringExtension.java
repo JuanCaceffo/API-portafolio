@@ -8,10 +8,9 @@ import java.util.Optional;
 
 @Extension
 public class MyStringExtension{
-    public static void isBlankException(@This String str, String msg){
+    public static void isBlankException(@This String str, BusinessException exception){
         if(str.isBlank()){
-            System.out.println("jode");
-            throw new BusinessException(msg);
+            throw exception;
         }
     }
 

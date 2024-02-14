@@ -19,7 +19,7 @@ public class Repository <T extends RepositoryProps> {
                 .filter(item -> Objects.equals(item.id, id))
                 .findFirst();
         if (element.isEmpty()){
-            throw new BusinessException("El elemento no fue encontrado");
+            throw new BusinessException("Exception.Repository.notFound");
         }
         return element.get();
     }

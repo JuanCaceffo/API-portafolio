@@ -1,5 +1,7 @@
 package com.caceffo.APIportfolio.Domain.helpers;
 
+import com.caceffo.APIportfolio.Errors.BusinessException;
+
 public class Email {
     public String from;
     private String to;
@@ -12,8 +14,8 @@ public class Email {
         this.subject = subject.emptyIfIsNull();
         this.content = content.emptyIfIsNull();
         //validations
-        this.from.isBlankException("You neeed to specify where from the email");
-        this.to.isBlankException("You neeed to specify where's go the email");
-        this.subject.isBlankException("The subjet can't be empty");
+        this.from.isBlankException(new BusinessException("Exception.Email.whereFrom"));
+        this.to.isBlankException(new BusinessException("Exception.Email.whereGoes"));
+        this.subject.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","Subject"));
     }
 }
