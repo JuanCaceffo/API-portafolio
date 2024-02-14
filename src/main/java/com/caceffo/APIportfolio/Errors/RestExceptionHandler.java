@@ -32,14 +32,4 @@ public class RestExceptionHandler {
         ex.printStackTrace();
         return new ResponseEntity<>(new MessageDTO(errorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
-    /*@ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<RestMessage> handleArgumentNotValidException(MethodArgumentNotValidException ex, Locale locale) {
-        BindingResult result = ex.getBindingResult();
-        List<String> errorMessages = result.getAllErrors()
-                .stream()
-                .map(objectError -> messageSource.getMessage(objectError, locale))
-                .collect(Collectors.toList());
-        return new ResponseEntity<>(new RestMessage(errorMessages), HttpStatus.BAD_REQUEST);
-    }*/
 }
