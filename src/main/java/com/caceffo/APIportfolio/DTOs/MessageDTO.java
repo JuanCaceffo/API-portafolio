@@ -1,18 +1,18 @@
-package com.caceffo.APIportfolio.utils;
+package com.caceffo.APIportfolio.DTOs;
 
 import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class RestMessage {
+public class MessageDTO {
     private String message;
     private List<String> messages;
 
-    public RestMessage(List<String> messages) {
+    public MessageDTO(List<String> messages) {
         this.messages = messages;
     }
 
-    public RestMessage(String message) {
+    public MessageDTO(String message) {
         this.message = message;
     }
 }
