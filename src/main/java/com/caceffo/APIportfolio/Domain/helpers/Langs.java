@@ -18,7 +18,8 @@ public class Langs {
         try {
             return String.valueOf(this.getClass().getField(field).get(this));
         }catch (NoSuchFieldException | IllegalAccessException  e){
-            throw new BusinessException("caca");
+            System.out.println(field);
+            throw new BusinessException("Exception.Lang.missingLang", field);
         }
     }
     public void fieldsBlankException(){
