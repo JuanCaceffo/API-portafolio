@@ -52,7 +52,7 @@ public class PersonalProjectControllerSpec {
     private void performAndGetLanguageResponse(String language, List<PersonalProjectDTO> expectedResponse) throws Exception {
         mockMvc.perform(
                         MockMvcRequestBuilders
-                                .get("/projects/all")
+                                .get("/project/all")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .header("Accept-Language", language)
                 )

@@ -6,9 +6,11 @@ import com.caceffo.APIportfolio.Errors.BusinessException;
 import com.caceffo.APIportfolio.Repository.RepositoryProps;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import lombok.Getter;
 
 import java.util.Optional;
 
+@Getter
 public class PersonalProjects extends RepositoryProps {
     private Langs type;
     private Langs title;
