@@ -22,14 +22,12 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler(BusinessException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseEntity<MessageDTO> handleBussinesException(BusinessException ex, Locale locale){
+    public ResponseEntity<MessageDTO> handleBusinessException(BusinessException ex, Locale locale){
         String message = messageSource.getMessage(ex.getMessage(),ex.params,locale);
         return new ResponseEntity<>(new MessageDTO(message) ,HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<MessageDTO> handleExceptions(Exception ex, Locale locale) {
         String errorMessage = messageSource.getMessage(UNEXPECTED_ERROR, null, locale);
         ex.printStackTrace();
