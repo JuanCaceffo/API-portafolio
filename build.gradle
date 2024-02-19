@@ -26,17 +26,16 @@ repositories {
 }
 
 manifold {
-	manifoldVersion = '2024.1.1'
+    manifoldVersion = '2024.1.1'
 }
 
 ext {
-	junitVersion = '5.10.1'
+    junitVersion = '5.10.1'
+    springFoxVersion = '3.0.0'
 }
 
-//TODO: exclude juint dependency from srpiring-boot-starter-test and add manually
 dependencies {
-
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'joda-time:joda-time:2.12.7'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -51,6 +50,8 @@ dependencies {
     implementation "systems.manifold:manifold-props-rt:${manifold.manifoldVersion.get()}"
     annotationProcessor "systems.manifold:manifold-json:${manifold.manifoldVersion.get()}"
     annotationProcessor "systems.manifold:manifold-props:${manifold.manifoldVersion.get()}"
+    implementation "io.springfox:springfox-boot-starter:${springFoxVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-parent:2.6.1"
 }
 
 tasks.named('test') {
