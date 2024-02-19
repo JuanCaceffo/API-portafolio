@@ -49,6 +49,7 @@ dependencies {
     implementation "systems.manifold:manifold-props-rt:${manifold.manifoldVersion.get()}"
     annotationProcessor "systems.manifold:manifold-json:${manifold.manifoldVersion.get()}"
     annotationProcessor "systems.manifold:manifold-props:${manifold.manifoldVersion.get()}"
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0"
 }
 
 tasks.named('test') {
