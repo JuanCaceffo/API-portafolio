@@ -31,7 +31,6 @@ manifold {
 
 ext {
     junitVersion = '5.10.1'
-    springFoxVersion = '3.0.0'
 }
 
 dependencies {
@@ -50,8 +49,6 @@ dependencies {
     implementation "systems.manifold:manifold-props-rt:${manifold.manifoldVersion.get()}"
     annotationProcessor "systems.manifold:manifold-json:${manifold.manifoldVersion.get()}"
     annotationProcessor "systems.manifold:manifold-props:${manifold.manifoldVersion.get()}"
-    implementation "io.springfox:springfox-boot-starter:${springFoxVersion}"
-    implementation "org.springframework.boot:spring-boot-starter-parent:2.6.1"
 }
 
 tasks.named('test') {
