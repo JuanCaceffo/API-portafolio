@@ -1,4 +1,4 @@
-package com.caceffo.APIportfolio.Reposiroty;
+package com.caceffo.APIportfolio.Repository;
 
 import com.caceffo.APIportfolio.Errors.BusinessException;
 
@@ -6,13 +6,14 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
+@org.springframework.stereotype.Repository
 public class Repository <T extends RepositoryProps> {
     private ArrayList<T> elementsList = new ArrayList<T>();
-    private Integer id = 0;
+    private Integer id = 1;
 
     public void clear() {
         elementsList.clear();
-        id = 0;
+        id = 1;
     }
     public T getElementById(Integer id){
         Optional<T> element =  elementsList.stream()

@@ -2,7 +2,7 @@ package com.caceffo.APIportfolio.Bootstrap;
 
 import com.caceffo.APIportfolio.Domain.PersonalProjects;
 import com.caceffo.APIportfolio.Domain.helpers.Langs;
-import com.caceffo.APIportfolio.Reposiroty.PersonalProjectRepo;
+import com.caceffo.APIportfolio.Repository.PersonalProjectRepo;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

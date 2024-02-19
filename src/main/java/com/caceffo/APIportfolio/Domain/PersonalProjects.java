@@ -3,13 +3,10 @@ package com.caceffo.APIportfolio.Domain;
 import com.caceffo.APIportfolio.DTOs.PersonalProjectDTO;
 import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Errors.BusinessException;
-import com.caceffo.APIportfolio.Reposiroty.RepositoryProps;
+import com.caceffo.APIportfolio.Repository.RepositoryProps;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
-import manifold.ext.rt.api.This;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Optional;
 
 public class PersonalProjects extends RepositoryProps {

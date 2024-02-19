@@ -1,9 +1,7 @@
 package com.caceffo.APIportfolio.Domain;
 
 import com.caceffo.APIportfolio.Errors.BusinessException;
-import com.caceffo.APIportfolio.Reposiroty.RepositoryProps;
-
-import java.util.Optional;
+import com.caceffo.APIportfolio.Repository.RepositoryProps;
 
 public class Skills extends RepositoryProps {
     public String imgUrl;

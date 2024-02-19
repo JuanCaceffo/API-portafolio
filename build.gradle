@@ -1,49 +1,58 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.2.2'
-	id 'io.spring.dependency-management' version '1.1.4'
-	id 'systems.manifold.manifold-gradle-plugin' version '0.0.2-alpha'}
+    id 'java'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'systems.manifold.manifold-gradle-plugin' version '0.0.2-alpha'
+}
 
 group = 'com.caceffo'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '21'
+    sourceCompatibility = '21'
 }
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-	testImplementation.extendsFrom annotationProcessor
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    testImplementation.extendsFrom annotationProcessor
 }
 
 repositories {
-	mavenLocal()
-	mavenCentral()
-	maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    mavenLocal()
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
 manifold {
 	manifoldVersion = '2024.1.1'
 }
 
+ext {
+	junitVersion = '5.10.1'
+}
+
+//TODO: exclude juint dependency from srpiring-boot-starter-test and add manually
 dependencies {
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'joda-time:joda-time:2.12.7'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-	testImplementation 'org.mockito:mockito-core:3.+'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-	implementation "systems.manifold:manifold-json-rt:${manifold.manifoldVersion.get()}"
-	implementation "systems.manifold:manifold-props-rt:${manifold.manifoldVersion.get()}"
-	annotationProcessor "systems.manifold:manifold-json:${manifold.manifoldVersion.get()}"
-	annotationProcessor "systems.manifold:manifold-props:${manifold.manifoldVersion.get()}"
+    implementation 'joda-time:joda-time:2.12.7'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-core:3.+'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter:${junitVersion}"
+    implementation "systems.manifold:manifold-json-rt:${manifold.manifoldVersion.get()}"
+    implementation "systems.manifold:manifold-props-rt:${manifold.manifoldVersion.get()}"
+    annotationProcessor "systems.manifold:manifold-json:${manifold.manifoldVersion.get()}"
+    annotationProcessor "systems.manifold:manifold-props:${manifold.manifoldVersion.get()}"
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

@@ -2,7 +2,7 @@ package com.caceffo.APIportfolio.Domain;
 
 import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Errors.BusinessException;
-import com.caceffo.APIportfolio.Reposiroty.RepositoryProps;
+import com.caceffo.APIportfolio.Repository.RepositoryProps;
 import org.joda.time.Months;
 import org.joda.time.LocalDate;
 import java.util.Optional;

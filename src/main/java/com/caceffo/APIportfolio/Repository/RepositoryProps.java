@@ -1,4 +1,4 @@
-package com.caceffo.APIportfolio.Reposiroty;
+package com.caceffo.APIportfolio.Repository;
 
 public class RepositoryProps {
     public Integer id = 0;
