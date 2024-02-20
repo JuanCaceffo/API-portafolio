@@ -4,6 +4,7 @@ import com.caceffo.APIportfolio.DTOs.PersonalProjectDTO;
 import com.caceffo.APIportfolio.Domain.PersonalProjects;
 import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Repository.PersonalProjectRepo;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,6 +50,17 @@ public class PersonalProjectControllerSpec {
         performAndGetLanguageResponse("es", List.of(personalProject.toDTO("es")));
     }
 
+    @Test
+    public void when_call_the_post_method_to_creat_a_project_works_fine() throws Exception {
+        final PersonalProjects goodProject = new PersonalProjects(new Langs("dsadsa","dsad"),new Langs("dsadsa","dsad"),new Langs("dsadsa","dsad"),"","");
+        mockMvc.perform(
+                MockMvcRequestBuilders
+                        .post("/project/create")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(goodProject))
+        )
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
     private void performAndGetLanguageResponse(String language, List<PersonalProjectDTO> expectedResponse) throws Exception {
         mockMvc.perform(
                         MockMvcRequestBuilders

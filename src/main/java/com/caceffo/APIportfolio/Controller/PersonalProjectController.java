@@ -31,6 +31,7 @@ public class PersonalProjectController {
     @Operation(summary = "Create a personal project")
     @PostMapping("/create")
     public void createAProject(@RequestBody PersonalProjects data){
+        System.out.println(data);
         personalProjectService.create(data);
     }
 }

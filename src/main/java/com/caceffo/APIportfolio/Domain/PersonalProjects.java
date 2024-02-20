@@ -7,10 +7,12 @@ import com.caceffo.APIportfolio.Repository.RepositoryProps;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Optional;
 
 @Getter
+@Setter
 public class PersonalProjects extends RepositoryProps {
     private Langs type;
     private Langs title;
