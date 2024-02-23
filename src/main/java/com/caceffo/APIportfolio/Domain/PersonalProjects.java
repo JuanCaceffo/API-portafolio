@@ -17,19 +17,19 @@ public class PersonalProjects extends RepositoryProps {
     private Langs type;
     private Langs title;
     private Langs description;
-    private Optional<String> repo;
-    private Optional<String> deploy;
+    private String repo;
+    private String deploy;
 
     public PersonalProjects(@Nonnull Langs type, @Nonnull Langs title, @Nonnull Langs description, @Nullable String repo, @Nullable String deploy) {
         this.type = nullLangException("Type", type);
         this.title = nullLangException("Title", title);
         this.description = nullLangException("Description", description);
-        this.repo = Optional.ofNullable(repo);
-        this.deploy = Optional.ofNullable(deploy);
+        this.repo = repo.emptyIfIsNull();
+        this.deploy = deploy.emptyIfIsNull();
     }
 
     public PersonalProjectDTO toDTO(String lang) {
-        PersonalProjectDTO dto = new PersonalProjectDTO(this.type.getFieldFromString(lang), this.title.getFieldFromString(lang), this.description.getFieldFromString(lang), this.repo.get(), this.deploy.get());
+        PersonalProjectDTO dto = new PersonalProjectDTO(this.type.getFieldFromString(lang), this.title.getFieldFromString(lang), this.description.getFieldFromString(lang), this.repo, this.deploy);
         return dto;
     }
 
