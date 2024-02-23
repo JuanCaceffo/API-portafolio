@@ -1,9 +1,13 @@
 package com.caceffo.APIportfolio.Domain.helpers;
 
 import com.caceffo.APIportfolio.Errors.BusinessException;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Optional;
 
+@Getter
+@Setter
 public class Langs {
     public String es;
     public String en;

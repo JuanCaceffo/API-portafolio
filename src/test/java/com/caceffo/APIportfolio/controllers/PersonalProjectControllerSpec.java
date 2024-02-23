@@ -61,6 +61,18 @@ public class PersonalProjectControllerSpec {
         )
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+    @Test
+    public void when_call_the_post_method_to_creat_a_project_then_works_wrong() throws Exception {
+        final PersonalProjects goodProject = new PersonalProjects(null,new Langs("dsadsa","dsad"),new Langs("dsadsa","dsad"),"","");
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .post("/project/create")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(mapper.writeValueAsString(goodProject))
+                )
+                .andExpect(MockMvcResultMatchers.status().is5xxServerError());
+    }
+
     private void performAndGetLanguageResponse(String language, List<PersonalProjectDTO> expectedResponse) throws Exception {
         mockMvc.perform(
                         MockMvcRequestBuilders

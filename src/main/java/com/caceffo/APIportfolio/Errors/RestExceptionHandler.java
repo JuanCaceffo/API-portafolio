@@ -1,13 +1,11 @@
 package com.caceffo.APIportfolio.Errors;
 
 import com.caceffo.APIportfolio.DTOs.MessageDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Locale;
 
@@ -16,7 +14,6 @@ public class RestExceptionHandler {
     private static final String UNEXPECTED_ERROR = "Exception.unexpected";
     private final MessageSource messageSource;
 
-    @Autowired
     public RestExceptionHandler(MessageSource messageSource) {
         this.messageSource = messageSource;
     }
