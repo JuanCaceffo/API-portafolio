@@ -2,7 +2,6 @@ package com.caceffo.APIportfolio.Controller;
 
 import com.caceffo.APIportfolio.DTOs.PersonalProjectDTO;
 import com.caceffo.APIportfolio.Domain.PersonalProjects;
-import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Service.PersonalProjectService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +33,6 @@ public class PersonalProjectController {
     public void createAProject(@RequestBody PersonalProjects data){
         personalProjectService.create(data);
     }
-
 }
 
 
