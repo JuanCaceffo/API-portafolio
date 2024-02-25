@@ -9,6 +9,7 @@ import jakarta.annotation.Nullable;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Getter
@@ -19,13 +20,15 @@ public class PersonalProjects extends RepositoryProps {
     private Langs description;
     private String repo;
     private String deploy;
+    private ArrayList<String> imgs;
 
-    public PersonalProjects(@Nonnull Langs type, @Nonnull Langs title, @Nonnull Langs description, @Nullable String repo, @Nullable String deploy) {
+    public PersonalProjects(@Nonnull Langs type, @Nonnull Langs title, @Nonnull Langs description, @Nullable String repo, @Nullable String deploy, @Nullable ArrayList<String> imgs) {
         this.type = nullLangException("Type", type);
         this.title = nullLangException("Title", title);
         this.description = nullLangException("Description", description);
         this.repo = repo.emptyIfIsNull();
         this.deploy = deploy.emptyIfIsNull();
+        this.imgs = imgs;
     }
 
     public PersonalProjectDTO toDTO(String lang) {
