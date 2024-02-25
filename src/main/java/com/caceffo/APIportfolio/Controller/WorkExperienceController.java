@@ -5,9 +5,7 @@ import com.caceffo.APIportfolio.Domain.WorkExperience;
 import com.caceffo.APIportfolio.Service.WorkExperienceService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
@@ -23,5 +21,11 @@ public class WorkExperienceController {
     @GetMapping("/all")
     public List<WorkExperienceDTO> getAll(Locale locale){
         return workService.getAll(locale.language);
+    }
+
+    @Operation(summary = "add a worck experience")
+    @PostMapping("/add")
+    public void add(@RequestBody WorkExperience workExp){
+        workService.addWork(workExp);
     }
 }
