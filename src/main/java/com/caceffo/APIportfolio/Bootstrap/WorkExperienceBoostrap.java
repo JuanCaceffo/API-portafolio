@@ -4,7 +4,7 @@ import com.caceffo.APIportfolio.Domain.PersonalProjects;
 import com.caceffo.APIportfolio.Domain.WorkExperience;
 import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Repository.WorkExperienceRepo;
-import org.joda.time.LocalDate;
+import java.time.LocalDate;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,8 +22,8 @@ public class WorkExperienceBoostrap implements InitializingBean {
                     new WorkExperience(
                             new Langs("Desarrollador web", "Web developer"),
                             new Langs("dsafdsfa", "dsadfds"),
-                            new LocalDate(2023,07,01),
-                            new LocalDate(2024,02,01)
+                            LocalDate.of(2023,07,01),
+                            LocalDate.of(2024,02,01)
                     )
             )
     );

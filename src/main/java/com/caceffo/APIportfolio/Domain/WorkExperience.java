@@ -4,16 +4,19 @@ import com.caceffo.APIportfolio.DTOs.WorkExperienceDTO;
 import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Errors.BusinessException;
 import com.caceffo.APIportfolio.Repository.RepositoryProps;
-import org.joda.time.Months;
-import org.joda.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Locale;
 import java.util.Optional;
 
 public class WorkExperience extends RepositoryProps {
     public Langs title;
     public Langs description;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public LocalDate startDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public LocalDate finishDate;
 
     public WorkExperience(Langs title, Langs description, LocalDate startDate, LocalDate finishDate){
@@ -25,7 +28,7 @@ public class WorkExperience extends RepositoryProps {
     }
 
     public int totalMonths() {
-        return Months.monthsBetween(this.startDate, this.finishDate).getMonths();
+        return Period.between(startDate,finishDate).getMonths();
     }
 
     public WorkExperienceDTO toDTO(String lang){
