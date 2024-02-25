@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Locale;
 import java.util.Optional;
 
 public class WorkExperience extends RepositoryProps {

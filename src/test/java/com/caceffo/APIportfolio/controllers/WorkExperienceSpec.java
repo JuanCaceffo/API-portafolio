@@ -64,4 +64,15 @@ public class WorkExperienceSpec {
                 .andExpect(MockMvcResultMatchers.content().json(mapper.writeValueAsString(List.of(simpleWorkExp.toDTO("en")))))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
+    @Test
+    public void add_a_workExp_then_works_fine() throws Exception {
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .post("/work/add")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(mapper.writeValueAsString(simpleWorkExp))
+                )
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
 }
