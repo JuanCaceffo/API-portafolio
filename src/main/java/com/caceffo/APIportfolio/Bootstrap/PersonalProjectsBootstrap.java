@@ -28,7 +28,7 @@ public class PersonalProjectsBootstrap implements InitializingBean {
     );
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet(){
         personalProjectsList.forEach(project -> {personalProjectRepo.addElement(project);});
     }
 }

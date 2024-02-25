@@ -21,4 +21,9 @@ public class PersonalProjectService {
     public void create(PersonalProjects data) {
         personalProjectRepo.addElement(data);
     }
+
+    public void delete(Integer id) {
+        PersonalProjects project = personalProjectRepo.getElementById(id);
+        personalProjectRepo.deleteElement(project);
+    }
 }

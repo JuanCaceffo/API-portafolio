@@ -1,15 +1,12 @@
 package com.caceffo.APIportfolio.controllers;
 
+import com.caceffo.APIportfolio.Bootstrap.PersonalProjectsBootstrap;
 import com.caceffo.APIportfolio.DTOs.PersonalProjectDTO;
 import com.caceffo.APIportfolio.Domain.PersonalProjects;
 import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import com.caceffo.APIportfolio.Repository.PersonalProjectRepo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,16 +16,19 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.List;
-import java.util.Locale;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("A personal project controller")
 public class PersonalProjectControllerSpec {
     @Autowired
     private MockMvc mockMvc;
     @Autowired
     private PersonalProjectRepo personalProjectRepo;
+    @Autowired
+    private PersonalProjectsBootstrap projectsBootstrap;
+
     private final ObjectMapper mapper = new ObjectMapper();
     private final PersonalProjects personalProject = new PersonalProjects(
             new Langs("Aplicacion web", "App web"),
@@ -39,12 +39,16 @@ public class PersonalProjectControllerSpec {
             null
     );
 
-    @BeforeEach
+    @BeforeAll
     public void init() {
         personalProjectRepo.clear();
         personalProjectRepo.addElement(personalProject);
     }
 
+    @AfterEach
+    public void end() throws Exception {
+        projectsBootstrap.afterPropertiesSet();
+    }
     @Test
     public void when_you_call_a_get_method_with_all_language_responses_to_return_all_projects_works_fine() throws Exception {
         performAndGetLanguageResponse("en", List.of(personalProject.toDTO("en")));
@@ -72,6 +76,26 @@ public class PersonalProjectControllerSpec {
                                 .content(mapper.writeValueAsString(badProject))
                 )
                 .andExpect(MockMvcResultMatchers.status().is4xxClientError());
+    }
+
+     @Test
+     public void when_delete_a_personal_projects_then_works_fine() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders
+                        .delete("/project/1/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(MockMvcResultMatchers.status().isOk());
+     }
+    @Test
+    public void when_delete_a_personal_projects_that_non_exist_then_make_exception() throws Exception {
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .delete("/project/2/delete")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(MockMvcResultMatchers.status().is4xxClientError());
+
     }
 
     private void performAndGetLanguageResponse(String language, List<PersonalProjectDTO> expectedResponse) throws Exception {

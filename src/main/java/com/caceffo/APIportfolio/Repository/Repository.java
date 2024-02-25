@@ -30,7 +30,7 @@ public class Repository <T extends RepositoryProps> {
     }
 
     public void deleteElement(T element){
-        elementsList.remove(element);
+        Boolean isRemoved = elementsList.remove(element);
     }
 
     public T addElement(T element){
