@@ -21,4 +21,9 @@ public class WorkExperienceService  {
     public void addWork(WorkExperience workExp) {
         workRepo.addElement(workExp);
     }
+
+    public void delete(Integer id) {
+        WorkExperience workExperience = workRepo.getElementById(id);
+        workRepo.deleteElement(workExperience);
+    }
 }

@@ -28,4 +28,9 @@ public class WorkExperienceController {
     public void add(@RequestBody WorkExperience workExp){
         workService.addWork(workExp);
     }
+    @Operation(summary = "delete a work experience")
+    @DeleteMapping("/{id}/remove")
+    public void delete(@PathVariable Integer id){
+        workService.delete(id);
+    }
 }
