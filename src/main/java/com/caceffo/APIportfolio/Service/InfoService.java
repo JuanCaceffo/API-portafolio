@@ -15,4 +15,13 @@ public class InfoService {
     public List<Skills> getAll() {
         return skillsRepo.getAll();
     }
+
+    public void removeSkill(Integer id) {
+        Skills skill = skillsRepo.getElementById(id);
+        skillsRepo.deleteElement(skill);
+    }
+
+    public void addSkill(Skills skill) {
+        skillsRepo.addElement(skill);
+    }
 }

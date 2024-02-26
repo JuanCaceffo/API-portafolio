@@ -3,7 +3,6 @@ package com.caceffo.APIportfolio.controllers;
 import com.caceffo.APIportfolio.Bootstrap.InfoPersonalBoostrap;
 import com.caceffo.APIportfolio.Domain.Skills;
 import com.caceffo.APIportfolio.Repository.SkillsRepo;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class InfoPersonalControllerSpec {
     @Autowired
     private SkillsRepo skillsRepo;
     private final ObjectMapper mapper = new ObjectMapper();
-    Skills skill = new Skills("dsadsadsaf");
+    private final Skills skill = new Skills("dsadsadsaf");
 
     @BeforeEach
     public void init(){
@@ -49,5 +48,35 @@ public class InfoPersonalControllerSpec {
         )
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(mapper.writeValueAsString(List.of(skill))));
+    }
+
+    @Test
+    public void delete_a_exist_skill_works_fine() throws Exception {
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .delete("/info/skill/1/remove")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+    @Test
+    public void delete_a_non_exist_skill_works_wrong() throws Exception {
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .delete("/info/skill/2/remove")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(MockMvcResultMatchers.status().is4xxClientError());
+    }
+
+    @Test
+    public void when_create_a_good_skill_then_works_fine() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders
+                        .post("/info/add/skill")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(skill))
+        )
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }

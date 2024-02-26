@@ -10,13 +10,14 @@ public class SkillsSpec {
     @Test
     void The_skill_is_created_fine() {
         Skills skill = new Skills("url");
-        assertEquals(skill.imgUrl, "url");
+        assertEquals(skill.getImgUrl(), "url");
     }
 
+    @Test
     void When_create_a_skill_without_url_works_wrong() {
         Exception exception =  assertThrows(BusinessException.class,() -> {
             new Skills(null);
         });
-        assertTrue(exception.getMessage().contains("The images url can not be empty"));
+        assertTrue(exception.getMessage().contains("Exception.PeronsalProject.CantBeEmpty"));
     }
 }
