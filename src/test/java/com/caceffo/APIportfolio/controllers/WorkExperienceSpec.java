@@ -75,4 +75,23 @@ public class WorkExperienceSpec {
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
+    @Test
+    public void delete_a_exist_workExp_works_fine() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders
+                        .delete("/work/1/remove")
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+    @Test
+    public void delete_a_non_exist_workExp_works_wrong() throws Exception {
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .delete("/work/2/remove")
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(MockMvcResultMatchers.status().is4xxClientError());
+    }
 }
