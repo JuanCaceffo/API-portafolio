@@ -22,7 +22,7 @@ import java.util.List;
 @AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("A work experience controller")
-public class WorkExperienceSpec {
+public class WorkExperienceControllerSpec {
 
     @Autowired
     private MockMvc mockMvc;
