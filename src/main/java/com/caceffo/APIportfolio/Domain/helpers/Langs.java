@@ -31,4 +31,7 @@ public class Langs {
             throw new BusinessException("Exception.Lang.someLangIsEmpty");
         }
     }
+    public static Langs nullLangException(String fieldName, Langs field) {
+        return Optional.ofNullable(field).orElseThrow(() -> new BusinessException("Exception.Langs.CantBeEmpty", fieldName));
+    }
 }

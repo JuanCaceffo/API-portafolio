@@ -43,6 +43,14 @@ public class WorkExperiencieSpec {
     }
 
     @Test
+    void workExp_without_field_works_wrong(){
+        Exception exception = assertThrows(BusinessException.class, () -> {
+            new WorkExperience(null, new Langs("lala","lala"), LocalDate.of(2023, 03, 01), LocalDate.of(2024, 02, 01));
+        });
+        assertTrue(exception.getMessage().contains("Exception.Langs.CantBeEmpty"));
+    }
+
+    @Test
     void startDate_of_the_worckExperiencie_is_greater_than_the_finshDate(){
         //Arragne
         Exception exception = assertThrows(BusinessException.class, () -> {

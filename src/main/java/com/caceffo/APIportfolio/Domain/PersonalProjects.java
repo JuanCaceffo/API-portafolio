@@ -40,12 +40,8 @@ public class PersonalProjects extends RepositoryProps {
     }
 
     public void validateFields(){
-        nullLangException("Type", type);
-        nullLangException("Title", title);
-        nullLangException("Description", description);
-    }
-
-    public Langs nullLangException(String fieldName, Langs field) {
-        return Optional.ofNullable(field).orElseThrow(() -> new BusinessException("Exception.PeronsalProject.CantBeEmpty", fieldName));
+        Langs.nullLangException("Type", type);
+        Langs.nullLangException("Title", title);
+        Langs.nullLangException("Description", description);
     }
 }

@@ -24,7 +24,8 @@ public class WorkExperience extends RepositoryProps implements Cloneable{
         this.description = description;
         this.startDate = startDate;
         this.finishDate = Optional.ofNullable(finishDate).orElse(LocalDate.now());
-        this.validateDates();
+        validateDates();
+        validateFields();
     }
 
     @Override
@@ -44,5 +45,10 @@ public class WorkExperience extends RepositoryProps implements Cloneable{
        if (this.startDate.isAfter(this.finishDate)){
            throw new BusinessException("Exception.WorckExperiencie.invalidStartDate");
        }
+    }
+
+    public void validateFields(){
+        Langs.nullLangException("Title",title);
+        Langs.nullLangException("Description",description);
     }
 }
