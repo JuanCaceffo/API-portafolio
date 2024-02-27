@@ -14,6 +14,10 @@ public class Skills extends RepositoryProps {
     public Skills(){}
     public Skills(@Nonnull String imgUrl){
         this.imgUrl = imgUrl.emptyIfIsNull();
+        validateFields();
+    }
+
+    public void validateFields(){
         this.imgUrl.isBlankException(new BusinessException("Exception.PeronsalProject.CantBeEmpty","Img url"));
     }
 }

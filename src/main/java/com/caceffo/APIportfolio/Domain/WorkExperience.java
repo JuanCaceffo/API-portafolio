@@ -18,6 +18,7 @@ public class WorkExperience extends RepositoryProps {
     @JsonFormat(pattern = "yyyy-MM-dd")
     public LocalDate finishDate;
 
+    public WorkExperience(){}
     public WorkExperience(Langs title, Langs description, LocalDate startDate, LocalDate finishDate){
         this.title = title;
         this.description = description;
@@ -35,7 +36,7 @@ public class WorkExperience extends RepositoryProps {
     }
     /* ---------------------------- validations ----------------------------*/
 
-    private void validateDates(){
+    public void validateDates(){
        if (this.startDate.isAfter(this.finishDate)){
            throw new BusinessException("Exception.WorckExperiencie.invalidStartDate");
        }

@@ -22,18 +22,27 @@ public class PersonalProjects extends RepositoryProps {
     private String deploy;
     private ArrayList<String> imgs;
 
+    public PersonalProjects(){}
+
     public PersonalProjects(@Nonnull Langs type, @Nonnull Langs title, @Nonnull Langs description, @Nullable String repo, @Nullable String deploy, @Nullable ArrayList<String> imgs) {
-        this.type = nullLangException("Type", type);
-        this.title = nullLangException("Title", title);
-        this.description = nullLangException("Description", description);
+        this.type = type;
+        this.title = title;
+        this.description = description;
         this.repo = repo.emptyIfIsNull();
         this.deploy = deploy.emptyIfIsNull();
         this.imgs = imgs;
+        validateFields();
     }
 
     public PersonalProjectDTO toDTO(String lang) {
         PersonalProjectDTO dto = new PersonalProjectDTO(this.type.getFieldFromString(lang), this.title.getFieldFromString(lang), this.description.getFieldFromString(lang), this.repo, this.deploy);
         return dto;
+    }
+
+    public void validateFields(){
+        nullLangException("Type", type);
+        nullLangException("Title", title);
+        nullLangException("Description", description);
     }
 
     public Langs nullLangException(String fieldName, Langs field) {
