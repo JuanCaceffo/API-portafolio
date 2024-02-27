@@ -22,6 +22,7 @@ public class InfoService {
     }
 
     public void addSkill(Skills skill) {
+        skill.validateFields();
         skillsRepo.addElement(skill);
     }
 }

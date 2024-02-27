@@ -39,7 +39,7 @@ public class PersonalProjectControllerSpec {
             null
     );
 
-    @BeforeAll
+    @BeforeEach
     public void init() {
         personalProjectRepo.clear();
         personalProjectRepo.addElement(personalProject);
@@ -68,7 +68,8 @@ public class PersonalProjectControllerSpec {
     }
     @Test
     public void when_call_the_post_method_to_creat_a_project_then_works_wrong() throws Exception {
-        final PersonalProjects badProject = new PersonalProjects(null,new Langs("dsadsa","dsad"),new Langs("dsadsa","dsad"),"","",null);
+        final PersonalProjects badProject = new PersonalProjects(new Langs("dsadsa","dsad"),new Langs("dsadsa","dsad"),new Langs("dsadsa","dsad"),"","",null);
+        badProject.setType(null);
         mockMvc.perform(
                         MockMvcRequestBuilders
                                 .post("/project/create")

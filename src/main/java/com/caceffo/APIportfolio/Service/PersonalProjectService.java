@@ -19,6 +19,7 @@ public class PersonalProjectService {
     }
 
     public void create(PersonalProjects data) {
+        data.validateFields();
         personalProjectRepo.addElement(data);
     }
 

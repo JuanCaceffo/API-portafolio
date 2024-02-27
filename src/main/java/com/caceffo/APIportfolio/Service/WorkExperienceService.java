@@ -19,6 +19,7 @@ public class WorkExperienceService  {
     }
 
     public void addWork(WorkExperience workExp) {
+        workExp.validateDates();
         workRepo.addElement(workExp);
     }
 
