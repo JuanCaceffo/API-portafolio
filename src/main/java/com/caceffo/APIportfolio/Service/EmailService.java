@@ -19,7 +19,7 @@ public class EmailService{
         message.setFrom(from);
         message.setTo(from);
         message.setSubject(subject + data.getName());
-        message.setText(String.format("Email: %s\nMensaje: %s",data.getEmail(),data.getMessage()));
+        message.setText(String.format("Email: %s\nMensaje:\n%s",data.getEmail(),data.getMessage()));
         emailSender.send(message);
     }
 }
