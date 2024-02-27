@@ -77,6 +77,19 @@ public class WorkExperienceControllerSpec {
     }
 
     @Test
+    public void add_a_workExp_with_a_wrong_startDate_then_works_wrong() throws Exception {
+        WorkExperience badWorkExp = (WorkExperience) simpleWorkExp.clone();
+        badWorkExp.finishDate = LocalDate.of(2023,01,01);
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .post("/work/add")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(mapper.writeValueAsString(badWorkExp))
+                )
+                .andExpect(MockMvcResultMatchers.status().is4xxClientError());
+    }
+
+    @Test
     public void delete_a_exist_workExp_works_fine() throws Exception {
         mockMvc.perform(
                 MockMvcRequestBuilders

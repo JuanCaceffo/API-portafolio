@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Optional;
 
-public class WorkExperience extends RepositoryProps {
+public class WorkExperience extends RepositoryProps implements Cloneable{
     public Langs title;
     public Langs description;
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -27,6 +27,10 @@ public class WorkExperience extends RepositoryProps {
         this.validateDates();
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
     public int totalMonths() {
         return Period.between(startDate,finishDate).getMonths();
     }
