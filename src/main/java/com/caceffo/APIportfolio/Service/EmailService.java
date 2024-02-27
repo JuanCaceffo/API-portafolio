@@ -1,26 +1,25 @@
 package com.caceffo.APIportfolio.Service;
 
-import com.caceffo.APIportfolio.Domain.helpers.Email;
-import com.caceffo.APIportfolio.Domain.helpers.MailSender;
+import com.caceffo.APIportfolio.DTOs.ContactDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class EmailServiceImpl implements MailSender {
+public class EmailService{
 
     @Autowired
     private JavaMailSender emailSender;
     private final String from = "caceffojuan@gmail.com";
+    private final String subject = "CONTACTO PORTAFOLIO - ";
 
-    @Override
-    public void sendEmail(Email email) {
+    public void sendEmail(ContactDTO data) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
-        message.setTo(email.getTo());
-        message.setSubject(email.getSubject());
-        message.setText(email.getContent());
+        message.setTo(from);
+        message.setSubject(subject + data.getName());
+        message.setText(String.format("Email: %s\nMensaje: %s",data.getEmail(),data.getMessage()));
         emailSender.send(message);
     }
 }
