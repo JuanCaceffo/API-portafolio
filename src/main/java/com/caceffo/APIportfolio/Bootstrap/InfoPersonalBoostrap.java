@@ -16,7 +16,16 @@ public class InfoPersonalBoostrap implements InitializingBean {
     private SkillsRepo skillsRepo;
 
     List<Skills> skillsList = new ArrayList(List.of(
-            new Skills("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl9dpnFbblscfaol5rV0rZ9g5DR_dr3_DV4QWsXFiVLA&s")
+            new Skills("/assets/mocks-imgs/skills/react.png"),
+            new Skills("/assets/mocks-imgs/skills/angular.png"),
+            new Skills("/assets/mocks-imgs/skills/ts.png"),
+            new Skills("/assets/mocks-imgs/skills/java.png"),
+            new Skills("/assets/mocks-imgs/skills/js.png"),
+            new Skills("/assets/mocks-imgs/skills/springboot.png"),
+            new Skills("/assets/mocks-imgs/skills/sass.png"),
+            new Skills("/assets/mocks-imgs/skills/html.png"),
+            new Skills("/assets/mocks-imgs/skills/git.png"),
+            new Skills("/assets/mocks-imgs/skills/kotlin.png")
     ));
 
     @Override
