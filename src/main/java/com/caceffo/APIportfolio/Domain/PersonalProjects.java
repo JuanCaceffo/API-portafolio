@@ -35,7 +35,7 @@ public class PersonalProjects extends RepositoryProps {
     }
 
     public PersonalProjectDTO toDTO(String lang) {
-        PersonalProjectDTO dto = new PersonalProjectDTO(this.type.getFieldFromString(lang), this.title.getFieldFromString(lang), this.description.getFieldFromString(lang), this.repo, this.deploy);
+        PersonalProjectDTO dto = new PersonalProjectDTO(this.type.getFieldFromString(lang), this.title.getFieldFromString(lang), this.description.getFieldFromString(lang), this.repo, this.deploy, imgs);
         return dto;
     }
 

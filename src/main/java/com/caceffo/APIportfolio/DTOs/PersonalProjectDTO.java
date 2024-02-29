@@ -4,6 +4,7 @@ import com.caceffo.APIportfolio.Domain.helpers.Langs;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -14,4 +15,5 @@ public class PersonalProjectDTO {
     private String description;
     private String repo;
     private String deploy;
+    private List<String> imgs;
 }
