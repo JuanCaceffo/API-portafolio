@@ -20,20 +20,20 @@ public class PersonalProjectsSpec {
     public void PersonalProject_cant_have_an_empty_type() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
             new PersonalProjects(null, new Langs("dsa","dsa"), new Langs("dsa","dsa"), null, null, null);
-        }), "Exception.PeronsalProject.CantBeEmpty");
+        }), "Exception.Langs.CantBeEmpty");
     }
 
     @Test
     public void PersonalProject_cant_have_an_empty_title() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
             new PersonalProjects(new Langs("dsa","dsa"), null, new Langs("dsa","dsa"), null, null, null);
-        }), "Exception.PeronsalProject.CantBeEmpty");
+        }), "Exception.Langs.CantBeEmpty");
     }
 
     @Test
     public void PersonalProject_cant_have_an_empty_description() {
         throw_an_bussines_expetion(assertThrows(BusinessException.class, () -> {
             new PersonalProjects(new Langs("dsa","dsa"), new Langs("dsa","dsa"), null, null, null, null);
-        }), "Exception.PeronsalProject.CantBeEmpty");
+        }), "Exception.Langs.CantBeEmpty");
     }
 }
