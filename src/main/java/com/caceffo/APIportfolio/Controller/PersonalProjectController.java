@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Locale;
 
-@CrossOrigin(origins = {"http://192.168.100.4:4200/", "http://localhost:4200/"})
+@CrossOrigin(origins = {"http://192.168.100.4:4200/", "http://localhost:4200/", "http://192.168.1.52:4200/"})
 @RestController
 @RequestMapping("project")
 public class PersonalProjectController {
