@@ -7,11 +7,11 @@ import com.caceffo.APIportfolio.Service.EmailService;
 import com.caceffo.APIportfolio.Service.InfoService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://192.168.100.4:4200/", "http://localhost:4200/", "http://192.168.1.52:4200/", "https://portafolio-18j9.onrender.com"})
 @RestController
 @RequestMapping("info")
 public class InfoPersonalController {
