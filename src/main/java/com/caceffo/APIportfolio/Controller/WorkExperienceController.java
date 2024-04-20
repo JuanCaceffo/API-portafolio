@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Locale;
 
-@CrossOrigin(origins = {"http://192.168.100.4:4200/", "http://localhost:4200/", "http://192.168.1.52:4200/", "https://portafolio-18j9.onrender.com"})
 @RestController
 @RequestMapping("work")
 public class WorkExperienceController {
